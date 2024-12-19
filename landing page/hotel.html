@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Penginapan</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .hero {
+            background-size: cover;
+            background-color: black;
+            height: 500px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .container my-5{
+            background-color: black;
+        }
+        .row{
+            background-color:black;
+            height: 100vh;
+            color:black;
+        }
+        .form-row{
+            background-color: black;
+            color: white;
+        }
+        .form-group col-md-6{
+            background-color:black;
+            color: aliceblue;
+        }
+        .card{
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div>
+            <img src="hotel23.jpg" alt="">
+            <h1>Selamat Datang di Hotel Kami</h1>
+            <p>Penginapan Nyaman dan Mewah untuk Anda</p>
+            <a href="#reservasi" class="btn btn-primary btn-lg">Pesan Sekarang</a>
+        </div>
+    </header>
+    </header>
+    <section class="container my-5">
+        <h2 class="text-center">Fasilitas Kami</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://source.unsplash.com/400x300/?pool" class="card-img-top" alt="Kolam Renang">
+                    <div class="card-body">
+                        <h5 class="card-title">Kolam Renang</h5>
+                        <img src="kolam1.jpg" alt="">
+                        <p class="card-text">Nikmati waktu santai di kolam renang kami yang indah.</p>
+                        <p>bersiaplah memasuki surga bergaya Amerika dengan
+                            kamar kolam privat – oasis pribadi Anda untuk relaksasi
+                            <br>dan kesenangan yang tiada tara
+                        <br> nikmati liburan anda dengan bermain bersama kelurga
+                        <br> bermain air di ruangan yang hanya anda dan keluarga saja</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://source.unsplash.com/400x300/?restaurant" class="card-img-top" alt="Restoran">
+                    <div class="card-body">
+                        <h5 class="card-title">Restoran</h5>
+                        <img src="resto.jpg" alt="">
+                        <p class="card-text">Cicipi hidangan lezat dari chef terbaik kami.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://source.unsplash.com/400x300/?spa" class="card-img-top" alt="Spa">
+                    <div class="card-body">
+                        <h5 class="card-title">Spa & Wellness</h5>
+                        <img src="pijat.avif" alt="">
+                        <p class="card-text">Rileks dan segarkan diri Anda dengan layanan spa kami.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://source.unsplash.com/400x300/?spa" class="card-img-top" alt="Spa">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reservasi" class="container my-5">
+        <h2 class="text-center">Reservasi</h2>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                <form action="makasih.html"></form>
+                    <label for="name">Nama</label>
+                    <input type="text" class="form-control" id="name" placeholder="Nama Anda" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email Anda" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="checkin">Check-in</label>
+                    <input type="date" class="form-control" id="checkin" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="checkout">Check-out</label>
+                    <input type="date" class="form-control" id="checkout" required>
+                </div>
+            </div>
+            <br><center><button type="submit" class="btn btn-primary">Kirim Reservasi</button></center>
+        </form>
+    </section>
+
+    <footer class="text-center py-4">
+        <p>&copy; 2023 Hotel Penginapan. Semua hak dilindungi.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popper

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validasi</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+    .input-error {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+  <h2>Form Pemesanan Tiket</h2>
+  <form id="ticketForm">
+    <div>
+      <label for="namaPelanggan">Nama Pelanggan:</label><br>
+      <input type="text" id="namaPelanggan" name="namaPelanggan">
+      <span class="error" id="namaPelangganError"></span>
+    </div>
+    <div>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email">
+      <span class="error" id="emailError"></span>
+    </div>
+    <div>
+      <label for="jamKeberangkatan">Jam Keberangkatan (00:00 - 23:59):</label><br>
+      <input type="text" id="jamKeberangkatan" name="jamKeberangkatan" placeholder="hh:mm">
+      <span class="error" id="jamKeberangkatanError"></span>
+    </div>
+    <div>
+      <label for="tujuanKeberangkatan">Tujuan Keberangkatan:</label><br>
+      <input type="text" id="tujuanKeberangkatan" name="tujuanKeberangkatan">
+      <span class="error" id="tujuanKeberangkatanError"></span>
+    </div>
+    <div>
+      <label for="jumlahTiket">Jumlah Tiket (1 - 10):</label><br>
+      <input type="number" id="jumlahTiket" name="jumlahTiket">
+      <span class="error" id="jumlahTiketError"></span>
+    </div>
+    <div>
+      <button type="button" onclick="validateForm()">Submit</button>
+    </div>
+  </form>
+
+  <div id="output"></div>
+
+  <script>
+    function validateForm() {
+      let isValid = true;
+
+      // Mengambil elemen
+      const namaPelanggan = document.getElementById('namaPelanggan');
+      const email = document.getElementById('email');
+      const jamKeberangkatan = document.getElementById('jamKeberangkatan');
+      const tujuanKeberangkatan = document.getElementById('tujuanKeberangkatan');
+      const jumlahTiket = document.getElementById('jumlahTiket');
+
+      const namaPelangganError = document.getElementById('namaPelangganError');
+      const emailError = document.getElementById('emailError');
+      const jamKeberangkatanError = document.getElementById('jamKeberangkatanError');
+      const tujuanKeberangkatanError = document.getElementById('tujuanKeberangkatanError');
+      const jumlahTiketError = document.getElementById('jumlahTiketError');
+
+      // Reset error state
+      [namaPelanggan, email, jamKeberangkatan, tujuanKeberangkatan, jumlahTiket].forEach(input => input.classList.remove('input-error'));
+      [namaPelangganError, emailError, jamKeberangkatanError, tujuanKeberangkatanError, jumlahTiketError].forEach(span => span.textContent = '');
+
+      // Validasi Nama Pelanggan
+      if (!namaPelanggan.value.trim() || namaPelanggan.value.length > 30) {
+        namaPelangganError.textContent = 'Nama pelanggan wajib diisi dan maksimal 30 karakter.';
+        namaPelanggan.classList.add('input-error');
+        isValid = false;
+      }
+
+      // Validasi Email
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      if (!email.value.trim() || !emailPattern.test(email.value)) {
+        emailError.textContent = 'Masukkan email yang valid.';
+        email.classList.add('input-error');
+        isValid = false;
+      }
+
+      // Validasi Jam Keberangkatan
+      const timePattern = /^([01]\d|2[0-3]):([0-5]\d)$/;
+      if (!jamKeberangkatan.value.trim() || !timePattern.test(jamKeberangkatan.value)) {
+        jamKeberangkatanError.textContent = 'Masukkan jam keberangkatan dalam format 00:00 - 23:59.';
+        jamKeberangkatan.classList.add('input-error');
+        isValid = false;
+      }
+
+      // Validasi Tujuan Keberangkatan
+      if (!tujuanKeberangkatan.value.trim()) {
+        tujuanKeberangkatanError.textContent = 'Tujuan keberangkatan wajib diisi.';
+        tujuanKeberangkatan.classList.add('input-error');
+        isValid = false;
+      }
+
+      // Validasi Jumlah Tiket
+      if (!jumlahTiket.value.trim() || isNaN(jumlahTiket.value) || jumlahTiket.value < 1 || jumlahTiket.value > 10) {
+        jumlahTiketError.textContent = 'Jumlah tiket harus berupa angka antara 1 - 10.';
+        jumlahTiket.classList.add('input-error');
+        isValid = false;
+      }
+
+      // Jika valid, tampilkan data
+      if (isValid) {
+        const output = document.getElementById('output');
+        output.innerHTML = `
+          <h3>Data Pemesanan</h3>
+          <p><strong>Nama Pelanggan:</strong> ${namaPelanggan.value}</p>
+          <p><strong>Email:</strong> ${email.value}</p>
+          <p><strong>Jam Keberangkatan:</strong> ${jamKeberangkatan.value}</p>
+          <p><strong>Tujuan Keberangkatan:</strong> ${tujuanKeberangkatan.value}</p>
+          <p><strong>Jumlah Tiket:</strong> ${jumlahTiket.value}</p>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
